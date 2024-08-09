@@ -1,0 +1,90 @@
+
+version: 2
+
+models:
+  - name: fact_internet_sales
+    description: "Her kan man legge inn kommentarer om hva denne faktaen handler om"
+    columns:
+      - name: SalesOrderNumber
+        description: "Salgsordrenøkkel. Primærnøkkel for denne tabellen"
+      - name: OrderDateKey
+        description: "Ordredatonøkkel - nøkkel til calendertabell"
+      - name: DueDateKey
+        description: "Utløpsfristnøkkel - nøkkel til calendertabell"
+      - name: ShipDateKey
+        description: "Forsendelsesdato - nøkkel til calendertabell"
+      - name: CustomerKey
+        description: "Kundenøkkel - nøkkel dil kundedimensjonen"
+      - name: ProductKey
+        description: "Produktnøkkel - nøkkel til produktdimensjonen"
+      - name: SalesAmount
+        description: "Fakta - sum salg"
+      - name: OrderQuantity
+        description: "Fakta - Antall bestillt"
+      - name: UnitPrice
+        description: "Degenerert dimensjon - Enhetspris"
+      - name: ExtendedAmount
+        description: "Fakta - utvidet antall"
+      - name: TaxAmt
+        description: "Fakta - sum skatt"
+      - name: Freight
+        description: "Fakta - fraktkostnader"
+      - name: TotalProductCost
+        description: "Fakta - total produktkostnad"
+      - name: FirstName
+        description: "Fornavn"
+      - name: LastName
+        description: "Etternavn"
+      - name: ProductName
+        description: "Degenerert dimensjon - Produktnavn"
+      - name: OrderDate
+        description: "Ordredato - alternativ ordredato"
+      
+
+  - name: stg_dim_customer_sales_summary
+    description: "Oppsummering av salg gruppert på kunder"
+    columns:
+      - name: CustomerKey
+        description: "Kundenøkkel. Primærnøkkel for denne tabellen"
+      - name: FirstName
+        description: "Fornavn"
+      - name: LastName
+        description: "Etternavn"
+      - name: total_sales_amount
+        description: "Totalt salg gruppert på kunde"
+      - name: total_orders
+        description: "Antall orde pr. kunde"
+      - name: avg_order_value
+        description: "Gjennomsnittlig ordreverdi"
+   
+
+  - name: stg_dim_monthly_sales_performance
+    description: "Tabbell for månedlig salgsprestasjon"
+    columns:
+      - name: year
+        description: "År"
+      - name: month
+        description: "Måned"
+      - name: total_sales_amount
+        description: "Totalt salg"
+      - name: total_orders
+        description: "Totalt antall ordre"
+      - name: avg_order_value
+        description: "Gjennomsnittlig ordreverdi"
+
+
+  - name: stg_dim_product_sales_summary
+    description: "Oppsummering av produktsalg"
+    columns:
+      - name: ProductKey
+        description: "Produktnøkkel. Primærnøkkel for denne tabellen."
+      - name: ProductName
+        description: "Produktnavn"
+      - name: total_sales_amount
+        description: "Sum salgsinntekt"
+      - name: total_units_sold
+        description: "Antall enheter solgt"
+      - name: avg_sales_amount_per_order
+        description: "Gjennomsnittlig salgsinntekt pr. ordre"
+
+
