@@ -1,20 +1,7 @@
-Welcome to your new dbt project!
+Welcome to my dbt template project!
 
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
-
-
+This is mainly for my own use when setting up new dbt projects to have some basics ready to use. 
+And to have a place to store my macros and examples of how I have solved problems in the past. 
 
 
 ### Reminders:
