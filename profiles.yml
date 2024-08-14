@@ -1,0 +1,33 @@
+flacke_dbt_template:
+    target: dev
+    outputs:
+        prod:
+            type: sqlserver
+            driver: 'ODBC Driver 18 for SQL Server'
+            server: server_name
+            database: prod_database_name
+            port: 1433
+            schema: prod
+            windows_login: True
+            trust_cert: True
+            threads: 8
+        test:
+            type: sqlserver
+            driver: 'ODBC Driver 18 for SQL Server'
+            server: server_name
+            database: test_database_name
+            port: 1433
+            schema: test
+            windows_login: True
+            trust_cert: True
+            threads: 6
+        dev:
+            type: sqlserver
+            driver: 'ODBC Driver 18 for SQL Server'
+            server: server_name
+            database: dev_database_name
+            port: 1433
+            schema: dev_{{env_var('USERNAME')}}
+            windows_login: True
+            trust_cert: True
+            threads: 4
