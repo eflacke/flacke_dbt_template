@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: name_of_source # name of source to be used in other models ref
+    database: database # name of database
+    schema: schema # name of schema if different form name_of_source
+    tables:
+      - name: table_name # name individual tables to be used in other models ref
+      - name: 
+      - name: 
