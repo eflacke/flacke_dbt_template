@@ -10,6 +10,7 @@ flacke_dbt_template:
             schema: prod
             windows_login: True
             trust_cert: True
+            retries: 4
             threads: 8
         test:
             type: sqlserver
@@ -20,6 +21,7 @@ flacke_dbt_template:
             schema: test
             windows_login: True
             trust_cert: True
+            retries: 2
             threads: 6
         dev:
             type: sqlserver
@@ -30,4 +32,5 @@ flacke_dbt_template:
             schema: dev_{{env_var('USERNAME')}}
             windows_login: True
             trust_cert: True
+            retries: 1
             threads: 4
