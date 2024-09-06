@@ -1,0 +1,37 @@
+# Denne fila definerer build pipeline i Azure Devops som kjører hver gang endringer merges til main.
+# Ikke gjør endringer her hvis du ikke vet hva du gjør, siden endringer vil påvirke dbt i produksjon.
+
+trigger:
+- main
+
+# Eksisterende SSIS-jobb kjører kl 0430. Setter opp denne 0500 slik at de ikke går i beina på hverandre.
+# Når jobbene er konvertert over til dbt kan denne schedule endres til 0430 om ønskelig.
+# MERK: Tidspunktet er satt for at alle filer fra Volvo som brukes skal være mottatt før jobbene går.
+
+schedules:
+- cron: '0 5 * * *'
+  displayName: Daglig build hver natt kl 0500
+  branches:
+    include:
+    - main
+  always: true # Indikerer at jobben skal kjøres på schedule uavhengig av om det er gjort kodeendringer siden sist kjøring.
+
+pool:
+  name: default
+  agent.name: -equals PROD-DBT01
+
+steps:
+- script: C:\dbt\dbt-env\Scripts\dbt debug --target cicd
+  displayName: 'dbt debug i cicd'
+
+- script: C:\dbt\dbt-env\Scripts\dbt debug --target prod
+  displayName: 'dbt debug i produksjon'
+
+- script: C:\dbt\dbt-env\Scripts\dbt deps
+  displayName: 'dbt deps'
+
+- script: C:\dbt\dbt-env\Scripts\dbt build --target cicd
+  displayName: 'dbt build i cicd'
+
+- script: C:\dbt\dbt-env\Scripts\dbt build --target prod
+  displayName: 'dbt build i produksjon'

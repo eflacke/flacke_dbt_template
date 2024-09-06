@@ -1,0 +1,5 @@
+packages:
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+
+#Husk å kjøre 'dbt deps' på alle nye miljøer inkludert prod umiddelbart etter installasjon. 
