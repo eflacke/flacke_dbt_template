@@ -1,0 +1,33 @@
+{% macro define_calendar_schema(calendar_name)%}
+
+	key_date as key_{{calendar_name}}_dato
+	,date as {{calendar_name}}_dato
+	,year as {{calendar_name}}_år
+	,iso_year as {{calendar_name}}_iso_år
+	,quarter as {{calendar_name}}_kvartal
+	,month as {{calendar_name}}_måned
+	,month_name_nor as {{calendar_name}}_måned_navn
+	,month_name_short_nor as {{calendar_name}}_måned_navn_kort
+	,year_month as {{calendar_name}}_år_måned
+	,week as {{calendar_name}}_uke
+	,iso_week as {{calendar_name}}_iso_uke
+	,day as {{calendar_name}}_dag
+	,weekday as {{calendar_name}}_ukedag
+	,weekday_name_nor as {{calendar_name}}_ukedag_navn
+	,weekday_name_short_nor as {{calendar_name}}_ukedag_navn_kort
+	,day_of_year as {{calendar_name}}_dag_i_året
+	,is_weekend as er_{{calendar_name}}_dato_helg
+	,first_of_week as først_i_{{calendar_name}}_uke
+	,last_of_week as sist_i_{{calendar_name}}_uke
+	,week_of_month as {{calendar_name}}_uke_i_måned
+	,first_of_month as først_i_{{calendar_name}}_måned
+	,last_of_month as sist_i_{{calendar_name}}_måned
+	,first_of_next_month as først_i_neste_{{calendar_name}}_måned
+	,last_of_next_month as sist_i_neste_{{calendar_name}}_måned
+	,first_of_quarter as først_i_{{calendar_name}}_kvartal
+	,last_of_quarter as sist_i_{{calendar_name}}_kvartal
+	,first_of_year as først_i_{{calendar_name}}_år
+	,last_of_year as sist_i_{{calendar_name}}_år
+	,is_leap_year as er_skudd_{{calendar_name}}_år
+
+{% endmacro %}
