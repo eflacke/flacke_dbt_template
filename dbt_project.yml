@@ -41,6 +41,7 @@ models:
       +schema: sources
 
 seeds:
+  flacke_dbt_template:
     comma_separated:
         +quote_columns: true
         +schema: seeds
